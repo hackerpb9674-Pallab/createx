@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Roboto+Flex:wght,wdth,slnt@100..1000,25..151,-10..0&display=swap');
+
+@font-face {
+  font-family: 'Compressa VF';
+  src: url('https://res.cloudinary.com/drwlu7r88/raw/upload/v1672322301/CompressaPRO-GX.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 33% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 185 72% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 185 72% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 90%;
+    --input: 214 32% 90%;
+    --ring: 185 72% 48%;
+
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(185, 72%, 48%), hsl(200, 80%, 55%));
+    --gradient-hero: linear-gradient(180deg, hsl(210, 33%, 99%) 0%, hsl(210, 33%, 96%) 100%);
+    --shadow-glow: 0 0 30px -5px hsl(185 72% 48% / 0.25);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 185 72% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 90%;
+    --sidebar-ring: 185 72% 48%;
+  }
+
+  .dark {
+    --background: 220 20% 6%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 18% 10%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 18% 10%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 185 72% 48%;
+    --primary-foreground: 220 20% 6%;
+
+    --secondary: 220 16% 16%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 14% 14%;
+    --muted-foreground: 215 12% 55%;
+
+    --accent: 185 72% 48%;
+    --accent-foreground: 220 20% 6%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 185 72% 48%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(185, 72%, 48%), hsl(200, 80%, 55%));
+    --gradient-hero: linear-gradient(180deg, hsl(220, 20%, 6%) 0%, hsl(220, 24%, 10%) 100%);
+    --shadow-glow: 0 0 30px -5px hsl(185 72% 48% / 0.25);
+
+    --sidebar-background: 220 18% 8%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 185 72% 48%;
+    --sidebar-primary-foreground: 220 20% 6%;
+    --sidebar-accent: 220 14% 14%;
+    --sidebar-accent-foreground: 210 20% 92%;
+    --sidebar-border: 220 14% 18%;
+    --sidebar-ring: 185 72% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, 0.14) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.14) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .dark body {
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .glow-shadow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+  }
+
+  .grid-bg-soft {
+    background-color: hsl(var(--background));
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, 0.14) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.14) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .dark .grid-bg-soft {
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+  }
+
+  .tech-marquee {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: tech-marquee 28s linear infinite;
+    will-change: transform;
+  }
+
+  .tech-marquee.reverse {
+    animation-direction: reverse;
+    animation-duration: 32s;
+  }
+
+  .tech-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    padding: 0.55rem 0.9rem;
+    margin-right: 0.85rem;
+    border-radius: 9999px;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--card) / 0.8);
+    color: hsl(var(--foreground) / 0.8);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .process-marquee {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: tech-marquee 24s linear infinite;
+    will-change: transform;
+    padding: 0.8rem 0;
+  }
+
+  .process-marquee-item {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    margin-right: 2.2rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .process-marquee-item::after {
+    content: "•";
+    margin-left: 2.2rem;
+    opacity: 0.7;
+  }
+}
+
+@keyframes tech-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Orbital card counter-rotation — keeps card text upright while parent orbits CW */
+@keyframes orbit-counter-rotate {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+
+.orbit-card-inner {
+  animation: orbit-counter-rotate 18s linear infinite;
+}
+
+/*
+  Correct orbit technique: each card starts at center (left:50%, top:50%)
+  and uses the double-rotate CSS trick to orbit while staying upright.
+  rotate(A) translateX(R) rotate(-A) places the card at angle A, radius R,
+  facing up. Animating A from start → start+360° creates the full orbit.
+*/
+@keyframes orbit-cw {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--orbit-start))
+      translateX(var(--orbit-radius, 185px))
+      rotate(calc(-1 * var(--orbit-start)));
+  }
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(calc(var(--orbit-start) + 360deg))
+      translateX(var(--orbit-radius, 185px))
+      rotate(calc(-1 * (var(--orbit-start) + 360deg)));
+  }
+}
+
+.orbit-card {
+  animation: orbit-cw 18s linear infinite;
+  --orbit-radius: 155px; /* mobile: fits in 420px container */
+}
+
+@media (min-width: 640px) {
+  .orbit-card {
+    --orbit-radius: 185px; /* sm+: fits in 500px container */
+  }
+}
+
+/* ─── Page Loader ──────────────────────────────────────────────────────────── */
+
+.page-loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(220, 20%, 5%);
+  overflow: hidden;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+.page-loader-overlay.page-loader-fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Animated gradient blobs */
+.page-loader-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.page-loader-blob-1 {
+  width: 480px;
+  height: 480px;
+  top: -120px;
+  left: -120px;
+  background: radial-gradient(circle, hsl(185, 72%, 48%, 0.35) 0%, transparent 70%);
+  animation: blob-drift-1 8s ease-in-out infinite alternate;
+}
+
+.page-loader-blob-2 {
+  width: 360px;
+  height: 360px;
+  bottom: -80px;
+  right: -80px;
+  background: radial-gradient(circle, hsl(200, 80%, 55%, 0.25) 0%, transparent 70%);
+  animation: blob-drift-2 10s ease-in-out infinite alternate;
+}
+
+/* Centre content */
+.page-loader-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* Spinning outer ring */
+.page-loader-ring {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 2px solid hsl(185, 72%, 48%, 0.15);
+  position: relative;
+  animation: loader-spin 1.4s linear infinite;
+  margin-bottom: -88px;
+  /* overlap with icon */
+}
+
+.page-loader-ring::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2.5px solid transparent;
+  border-top-color: hsl(185, 72%, 48%);
+  border-right-color: hsl(200, 80%, 55%, 0.6);
+}
+
+/* Brand icon centred inside ring */
+.page-loader-icon {
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(185, 72%, 52%);
+  animation: loader-pulse 2s ease-in-out infinite;
+}
+
+/* Brand name */
+.page-loader-brand {
+  margin-top: 20px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: hsl(210, 20%, 90%);
+  text-transform: uppercase;
+}
+
+/* Bouncing dots */
+.page-loader-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.page-loader-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(185, 72%, 48%);
+  animation: loader-bounce 1.2s ease-in-out infinite;
+}
+
+.page-loader-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+  background: hsl(190, 72%, 52%);
+}
+
+.page-loader-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+  background: hsl(200, 80%, 55%);
+}
+
+/* ─── Loader Keyframes ─────────────────────────────────────────────────────── */
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(0.94);
+  }
+}
+
+@keyframes loader-bounce {
+
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+
+  40% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+
+@keyframes blob-drift-1 {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(60px, 40px) scale(1.1);
+  }
+}
+
+@keyframes blob-drift-2 {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(-50px, -30px) scale(1.08);
+  }
+}
